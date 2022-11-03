@@ -19,28 +19,33 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
   const data: any = [
     {
       subject: "Maintainability",
-      A: 4,
-      fullMark: 4,
+      A: 5,
+      fullMark: 5,
     },
     {
       subject: "Integration",
-      A: 4,
-      fullMark: 4,
+      A: 5,
+      fullMark: 5,
     },
     {
       subject: "Security",
-      A: 4,
-      fullMark: 4,
+      A: 5,
+      fullMark: 5,
     },
     {
       subject: "Usability",
-      A: 4,
-      fullMark: 4,
+      A: 5,
+      fullMark: 5,
+    },
+    {
+      subject: "Reliability",
+      A: 5,
+      fullMark: 5,
     },
     {
       subject: "Future",
-      A: 4,
-      fullMark: 4,
+      A: 5,
+      fullMark: 5,
     },
   ];
 
@@ -59,14 +64,14 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
       <div>
         {results.map((result) => (
           <Typography variant="h5" key={result.key}>
-            {result.key}: {result.value}/4
+            {result.key}: {result.value}/5
           </Typography>
         ))}
       </div>
       <RadarChart outerRadius={90} width={730} height={250} data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
-        <PolarRadiusAxis angle={30} domain={[0, 4]} />
+        <PolarRadiusAxis angle={30} domain={[0, 5]} />
         <Radar
           name="Desired State"
           dataKey="A"

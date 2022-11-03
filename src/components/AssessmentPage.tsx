@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   FormControlLabel,
@@ -6,6 +7,7 @@ import {
   LinearProgress,
   Radio,
   RadioGroup,
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Results } from ".";
@@ -24,11 +26,13 @@ export const AssessmentPage = () => {
   const [results, setResults] = useState<IResult[]>([]);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
+  const numOfQuestions = questions.length;
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     //determine if end of quiz
-    currentQuestion === 4
+    currentQuestion === numOfQuestions - 1
       ? setIsSubmitted(true)
       : setCurrentQuestion(currentQuestion + 1);
 
@@ -45,18 +49,21 @@ export const AssessmentPage = () => {
         setProgress(0);
         break;
       case 1:
-        setProgress(20);
+        setProgress(17);
         break;
       case 2:
-        setProgress(40);
+        setProgress(35);
         break;
       case 3:
-        setProgress(60);
+        setProgress(51);
         break;
       case 4:
-        setProgress(80);
+        setProgress(68);
         break;
       case 5:
+        setProgress(85);
+        break;
+      case 6:
         setProgress(100);
         break;
       default:
@@ -76,7 +83,7 @@ export const AssessmentPage = () => {
   };
 
   return (
-    <>
+    <Box>
       {!isSubmitted ? (
         <div>
           <div style={{ marginTop: "20px" }}>
@@ -85,7 +92,12 @@ export const AssessmentPage = () => {
           <div style={{ marginTop: "20px" }}>
             <form onSubmit={handleSubmit}>
               <FormControl>
-                <FormLabel>{questions[currentQuestion].questionText}</FormLabel>
+                <FormLabel>
+                  <Typography variant="h5">
+                    {questions[currentQuestion].key}
+                  </Typography>
+                  {questions[currentQuestion].questionText}
+                </FormLabel>
                 <RadioGroup onChange={handleOnChange} value={value}>
                   {questions[currentQuestion].answerOptions.map((option) => (
                     <FormControlLabel
@@ -97,7 +109,7 @@ export const AssessmentPage = () => {
                   ))}
                 </RadioGroup>
                 <Button type="submit" variant="contained" disabled={isDisabled}>
-                  {currentQuestion === 4 ? "Submit" : "Next"}
+                  {currentQuestion === numOfQuestions - 1 ? "Submit" : "Next"}
                 </Button>
               </FormControl>
             </form>
@@ -108,6 +120,6 @@ export const AssessmentPage = () => {
           <Results results={results} />
         </div>
       )}
-    </>
+    </Box>
   );
 };
