@@ -59,7 +59,7 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
       <div>
         {results.map((result) => (
           <Typography variant="h5">
-            {result.key}: {result.value}/5
+            {result.key}: {result.value}/4
           </Typography>
         ))}
       </div>
