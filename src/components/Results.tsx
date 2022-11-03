@@ -68,8 +68,6 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
   const possibleScore = () => {
     let totalPossibleScore = 0;
     data.forEach((item: any) => (totalPossibleScore += item.fullMark));
-
-    console.log("totalPossibleScore: ", totalPossibleScore);
     return totalPossibleScore;
   };
   const actualScore = () => {
