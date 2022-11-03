@@ -34,13 +34,13 @@ export const questions = [
         "answerOptions": [...options]
     },
     {
-        "key": "Is your application secure? Are you protected against unauthorized access?",
+        "key": "Usability",
         "questionText": "Is operation intuitive?” “Can new users learn your application in a reasonable amount of time? ",
         "answerOptions": [...options]
     },
     {
         "key": "Future",
-        "questionText": "Is your application future-proof",
+        "questionText": "Is your application future-proof?",
         "answerOptions": [...options]
     },
 ]

@@ -8,6 +8,7 @@ import {
   RadioGroup,
 } from "@mui/material";
 import React, { useState } from "react";
+import { Results } from ".";
 import { questions } from "../data/questions";
 
 export interface IResult {
@@ -103,7 +104,9 @@ export const AssessmentPage = () => {
           </div>
         </div>
       ) : (
-        <div>Radar Chart with Results Goes Here</div>
+        <div>
+          <Results results={results} />
+        </div>
       )}
     </>
   );
