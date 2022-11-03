@@ -16,7 +16,7 @@ export const App = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Coming Soon
         </a>
       </header>
     </div>
