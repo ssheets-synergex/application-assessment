@@ -58,15 +58,26 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
     data[i].B = resultElement.value;
   });
 
+  const possibleScore = () => {
+    let totalPossibleScore = 0;
+    data.forEach((item: any) => (totalPossibleScore += item.fullMark));
+
+    console.log("totalPossibleScore: ", totalPossibleScore);
+    return totalPossibleScore;
+  };
+  const actualScore = () => {
+    let totalActualScore = 0;
+    results.forEach((result: any) => (totalActualScore += result.value));
+    return totalActualScore;
+  };
+
   return (
     <div>
       <Typography variant="h3">Results</Typography>
       <div>
-        {results.map((result) => (
-          <Typography variant="h5" key={result.key}>
-            {result.key}: {result.value}/5
-          </Typography>
-        ))}
+        <Typography variant="h5">
+          Score: {actualScore()} / {possibleScore()}
+        </Typography>
       </div>
       <RadarChart outerRadius={90} width={730} height={250} data={data}>
         <PolarGrid />
