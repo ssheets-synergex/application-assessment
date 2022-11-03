@@ -63,8 +63,8 @@ export const AssessmentPage = () => {
         setProgress(0);
     }
 
-    //TODO: reset option selected when user moves to next question
     setIsDisabled(true);
+    setValue(null);
   };
 
   const handleOnChange = (
@@ -86,7 +86,7 @@ export const AssessmentPage = () => {
             <form onSubmit={handleSubmit}>
               <FormControl>
                 <FormLabel>{questions[currentQuestion].questionText}</FormLabel>
-                <RadioGroup onChange={handleOnChange}>
+                <RadioGroup onChange={handleOnChange} value={value}>
                   {questions[currentQuestion].answerOptions.map((option) => (
                     <FormControlLabel
                       key={option.answerValue}
