@@ -56,6 +56,13 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
   return (
     <div>
       <Typography variant="h3">Results</Typography>
+      <div>
+        {results.map((result) => (
+          <Typography variant="h5">
+            {result.key}: {result.value}/5
+          </Typography>
+        ))}
+      </div>
       <RadarChart outerRadius={90} width={730} height={250} data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
