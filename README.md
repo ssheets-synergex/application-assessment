@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Application Assessment
+
+The Application Assessment tool can help Synergex’s Professional Services Group deliver a thorough, informed and immediately actionable roadmap.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -29,18 +31,12 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm run deploy`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Runs the `predeploy` script and deploy's to Sam Sheets' Vercel account. The deployed application's URL will be displayed in the terminal if all is successful.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## TODOs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ ] Styling on Home page (images?, layout), within assessment questions (layout and coloring), and Results page (colors, RadarChart size and layout, card link colors), etc.
+- [ ] Add ability to email self and Synergex pdf of assessment results.
+- [ ] Display user's answers to questions.
