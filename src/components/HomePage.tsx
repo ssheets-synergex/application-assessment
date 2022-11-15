@@ -10,22 +10,22 @@ export const HomePage = () => {
 
   return (
     <Box style={{ marginTop: "5%" }}>
-      <Typography variant="h3" align="center">
+      <Typography variant="h1" align="center">
         Does your IT roadmap have potholes?
       </Typography>
       <div style={{ margin: "5%" }}>
-        <Typography variant="h5" align="center">
+        <Typography variant="h4" align="center">
           Do you have doubts about your application’s future?
         </Typography>
-        <Typography variant="h5" align="center">
+        <Typography variant="h4" align="center">
           Are you losing sleep when thinking about your business?
         </Typography>
-        <Typography variant="h5" align="center">
+        <Typography variant="h4" align="center">
           Are you working harder, not smarter?
         </Typography>
       </div>
       <div>
-        <Typography variant="h5" align="center">
+        <Typography variant="h3" align="center">
           Take this short quiz to see how your application stacks up.
         </Typography>
         <Button
