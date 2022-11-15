@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { Results } from ".";
+import { BoxedLayout, Results } from ".";
 import { questions } from "../data/questions";
 
 export interface IResult {
@@ -83,43 +83,64 @@ export const AssessmentPage = () => {
   };
 
   return (
-    <Box>
+    <BoxedLayout>
       {!isSubmitted ? (
-        <div>
-          <div style={{ marginTop: "20px" }}>
-            <LinearProgress variant="determinate" value={progress} />
+        <Box width={"75%"}>
+          <div>
+            <div style={{ marginTop: "20px" }}>
+              <LinearProgress variant="determinate" value={progress} />
+            </div>
+            <div style={{ marginTop: "20px" }}>
+              <form onSubmit={handleSubmit}>
+                <FormControl>
+                  <FormLabel color="primary">
+                    <Typography
+                      variant="h3"
+                      color="primary"
+                      style={{ marginBottom: "2%" }}
+                    >
+                      {questions[currentQuestion].key}
+                    </Typography>
+                    <Typography color="primary">
+                      {questions[currentQuestion].questionText}
+                    </Typography>
+                  </FormLabel>
+                  <RadioGroup onChange={handleOnChange} value={value}>
+                    {questions[currentQuestion].answerOptions.map((option) => (
+                      <FormControlLabel
+                        key={option.answerValue}
+                        value={option.answerValue}
+                        control={<Radio />}
+                        label={option.answerText}
+                      />
+                    ))}
+                  </RadioGroup>
+                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      disabled={isDisabled}
+                      style={{
+                        marginTop: "3%",
+                        width: "30%",
+                      }}
+                      size="medium"
+                    >
+                      {currentQuestion === numOfQuestions - 1
+                        ? "Submit"
+                        : "Next"}
+                    </Button>
+                  </div>
+                </FormControl>
+              </form>
+            </div>
           </div>
-          <div style={{ marginTop: "20px" }}>
-            <form onSubmit={handleSubmit}>
-              <FormControl>
-                <FormLabel>
-                  <Typography variant="h5">
-                    {questions[currentQuestion].key}
-                  </Typography>
-                  {questions[currentQuestion].questionText}
-                </FormLabel>
-                <RadioGroup onChange={handleOnChange} value={value}>
-                  {questions[currentQuestion].answerOptions.map((option) => (
-                    <FormControlLabel
-                      key={option.answerValue}
-                      value={option.answerValue}
-                      control={<Radio />}
-                      label={option.answerText}
-                    />
-                  ))}
-                </RadioGroup>
-                <Button type="submit" variant="contained" disabled={isDisabled}>
-                  {currentQuestion === numOfQuestions - 1 ? "Submit" : "Next"}
-                </Button>
-              </FormControl>
-            </form>
-          </div>
-        </div>
+        </Box>
       ) : (
         <div>
           <Results results={results} />
         </div>
       )}
-    </Box>
+    </BoxedLayout>
   );
 };

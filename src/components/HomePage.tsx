@@ -1,5 +1,6 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { BoxedLayout } from "./BoxedLayout";
 
 export const HomePage = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export const HomePage = () => {
   };
 
   return (
-    <Box style={{ marginTop: "5%" }}>
+    <BoxedLayout>
       <Typography variant="h1" align="center">
         Does your IT roadmap have potholes?
       </Typography>
@@ -31,11 +32,11 @@ export const HomePage = () => {
         <Button
           variant="contained"
           onClick={handleOnClick}
-          style={{ marginTop: "2%" }}
+          style={{ marginTop: "3%" }}
         >
           Start Assessment
         </Button>
       </div>
-    </Box>
+    </BoxedLayout>
   );
 };
