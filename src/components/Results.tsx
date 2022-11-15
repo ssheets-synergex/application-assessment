@@ -1,4 +1,12 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  List,
+  ListItemText,
+  ListSubheader,
+  Typography,
+} from "@mui/material";
 import { IResult } from "./AssessmentPage";
 import BuildIcon from "@mui/icons-material/Build";
 import HttpsIcon from "@mui/icons-material/Https";
@@ -14,6 +22,8 @@ interface IResultsProp {
 }
 
 export const Results: React.FC<IResultsProp> = ({ results }) => {
+  let answers: any[] = [];
+
   //A = desired state
   //B = user results
   const data: any = [
@@ -56,6 +66,12 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
 
     const i = data.indexOf(matchingData);
     data[i].B = resultElement.value;
+    answers.push({
+      key: resultElement.key,
+      value: resultElement.value,
+      userAnswer: resultElement.userAnswer,
+      question: resultElement.question,
+    });
   });
 
   const possibleScore = () => {
@@ -74,18 +90,38 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
       <Typography variant="h1" color="primary">
         Results
       </Typography>
-      <Typography variant="h5" marginTop={"2%"}>
+      <Typography variant="h5" marginTop={"2%"} marginBottom={"4%"}>
         Score: {actualScore()} / {possibleScore()}
       </Typography>
-      <Grid container marginTop={"4%"} marginBottom={"4%"}>
+      <Grid container marginBottom={"4%"}>
         <Grid item xs={12} sm={12} md={6}>
-          <p>Answers Placeholder</p>
+          <List sx={{ listStyleType: "disc" }}>
+            <ListSubheader style={{ textAlign: "left" }}>
+              Your Answers:
+            </ListSubheader>
+            {answers.map((answer) => (
+              <ListItemText
+                key={answer.key}
+                style={{
+                  display: "list-item",
+                  textAlign: "left",
+                  margin: "2%",
+                  marginLeft: 50,
+                }}
+              >
+                {`${answer.key} (${answer.value}/5): ${answer.question}`}
+                <span
+                  style={{ fontWeight: "bold" }}
+                >{` ${answer.userAnswer}`}</span>
+              </ListItemText>
+            ))}
+          </List>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <RadarChart data={data} />
         </Grid>
       </Grid>
-      <Grid container marginTop={"4%"} marginBottom={"4%"}>
+      <Grid container marginBottom={"4%"}>
         <AssessmentCategoryCard
           icon={<BuildIcon fontSize="large" />}
           category="Maintainability"

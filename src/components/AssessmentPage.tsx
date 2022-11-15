@@ -16,6 +16,8 @@ import { questions } from "../data/questions";
 export interface IResult {
   key: string;
   value: number | null;
+  userAnswer: string | undefined;
+  question: string | undefined;
 }
 
 export const AssessmentPage = () => {
@@ -39,6 +41,10 @@ export const AssessmentPage = () => {
     //add new results to state
     const newResults = {
       key: questions[currentQuestion].key,
+      question: questions[currentQuestion].questionText,
+      userAnswer: questions[currentQuestion].answerOptions.find(
+        (item) => item.answerValue === value
+      )?.answerText,
       value: value,
     };
     setResults([...results, newResults]);
