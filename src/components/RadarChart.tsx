@@ -10,13 +10,7 @@ import {
 
 export const RadarChartComponent = ({ data }: any) => {
   return (
-    <RadarChart
-      outerRadius={90}
-      width={730}
-      height={250}
-      data={data}
-      style={{ marginTop: "4%", width: "50%", margin: "auto" }}
-    >
+    <RadarChart outerRadius={90} width={500} height={250} data={data}>
       <PolarGrid />
       <PolarAngleAxis dataKey="subject" />
       <PolarRadiusAxis angle={30} domain={[0, 5]} />

@@ -1,5 +1,4 @@
-import { Button, Typography } from "@mui/material";
-
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { IResult } from "./AssessmentPage";
 import BuildIcon from "@mui/icons-material/Build";
 import HttpsIcon from "@mui/icons-material/Https";
@@ -8,7 +7,7 @@ import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstruct
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import { Link } from "react-router-dom";
-import { AssessmentCategoryCard, RadarChart } from ".";
+import { AssessmentCategoryCard, BoxedLayout, RadarChart } from ".";
 
 interface IResultsProp {
   results: IResult[];
@@ -71,29 +70,24 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
   };
 
   return (
-    <div style={{ marginTop: "2%" }}>
-      <Typography variant="h3">Results</Typography>
-      <div style={{ marginTop: "1%" }}>
-        <Typography variant="h5">
-          Score: {actualScore()} / {possibleScore()}
-        </Typography>
-      </div>
-      <div style={{ marginTop: "1%" }}>
-        <RadarChart data={data} />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-          marginTop: "3%",
-          width: "75%",
-          margin: "auto",
-        }}
-      >
+    <BoxedLayout>
+      <Typography variant="h1" color="primary">
+        Results
+      </Typography>
+      <Typography variant="h5" marginTop={"2%"}>
+        Score: {actualScore()} / {possibleScore()}
+      </Typography>
+      <Grid container marginTop={"4%"} marginBottom={"4%"}>
+        <Grid item xs={12} sm={12} md={6}>
+          <p>Answers Placeholder</p>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <RadarChart data={data} />
+        </Grid>
+      </Grid>
+      <Grid container marginTop={"4%"} marginBottom={"4%"}>
         <AssessmentCategoryCard
-          icon={<BuildIcon />}
+          icon={<BuildIcon fontSize="large" />}
           category="Maintainability"
           categoryHref="https://xd.adobe.com/view/4a609834-c7b9-4d29-a070-f64651c659ea-1f33/screen/edabc2e3-357b-499c-9a70-a1961fa58c9a"
           categoryDescription="Bring that 30-year-old code base into a more modern, useful, and
@@ -101,7 +95,7 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           your code base."
         />
         <AssessmentCategoryCard
-          icon={<IntegrationInstructionsIcon />}
+          icon={<IntegrationInstructionsIcon fontSize="large" />}
           category="Integration"
           categoryHref="https://xd.adobe.com/view/4a609834-c7b9-4d29-a070-f64651c659ea-1f33/screen/9b55b72c-0264-4f61-95f7-327571f49e2b"
           categoryDescription="Securely and fluidly integrate with your business—and others.
@@ -109,14 +103,14 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           opening up your business logic and data."
         />
         <AssessmentCategoryCard
-          icon={<HttpsIcon />}
+          icon={<HttpsIcon fontSize="large" />}
           category="Security"
           categoryHref="https://xd.adobe.com/view/4a609834-c7b9-4d29-a070-f64651c659ea-1f33/screen/2a620696-451e-4340-b475-ee7e95f1afcb"
           categoryDescription="Uncover potential vulnerabilities and/or create a disaster
           recovery plan so you can bounce back from successful attacks."
         />
         <AssessmentCategoryCard
-          icon={<ViewQuiltIcon />}
+          icon={<ViewQuiltIcon fontSize="large" />}
           category="Usability"
           categoryHref="https://xd.adobe.com/view/4a609834-c7b9-4d29-a070-f64651c659ea-1f33/screen/28390719-9cb7-4f76-901b-928ccad1e82c"
           categoryDescription="Our lives today take place via web, mobile or touch screens. Now
@@ -124,45 +118,40 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           (UI/UX) to your proven business systems."
         />
         <AssessmentCategoryCard
-          icon={<HandshakeIcon />}
+          icon={<HandshakeIcon fontSize="large" />}
           category="Reliability"
           categoryHref="https://xd.adobe.com/view/4a609834-c7b9-4d29-a070-f64651c659ea-1f33/screen/eae924b2-9fbb-4149-bfd6-41b30a08a198"
           categoryDescription="Choose a solution that enables you to minimize downtime for your
           applications and boost their resilience."
         />
         <AssessmentCategoryCard
-          icon={<RocketLaunchIcon />}
+          icon={<RocketLaunchIcon fontSize="large" />}
           category="Future"
           categoryHref="https://xd.adobe.com/view/4a609834-c7b9-4d29-a070-f64651c659ea-1f33/screen/65f9e501-270c-40bd-ba70-0a69d1912719"
           categoryDescription="Legacy application modernization is a powerful and safe way to
           help ensure your company’s success, far into the future. Think
           evolution, not revolution."
         />
-      </div>
-      <div
-        style={{
-          marginTop: "5%",
-          width: "50%",
-          margin: "auto",
-          marginBottom: "5%",
-        }}
-      >
-        <Typography variant="h6">
+      </Grid>
+      <Box width={"75%"} marginBottom={"4%"}>
+        <Typography variant="h2">
           Optimize your application investment.{" "}
         </Typography>
-        <Typography variant="body1" style={{ marginTop: "1%" }}>
+        <Typography variant="body1" style={{ marginTop: "2%" }}>
           With the Synergex Application Assessment, you can own your
           application’s future instead of the future owning you.
         </Typography>
-        <Typography variant="body1" style={{ marginTop: "1%" }}>
+        <Typography variant="body1" style={{ marginTop: "2%" }}>
           Synergex’s Professional Services Group delivers a thorough, informed
           and immediately actionable roadmap in the shortest amount of time
           possible, the Application Assessment can put your business on the fast
           track to a brighter, more-sustainable future.
         </Typography>
-        <Typography variant="body1" style={{ marginTop: "1%" }}>
+
+        <Typography variant="body1" style={{ marginTop: "2%" }}>
           <Link
             to="#"
+            style={{ color: "#007f96", textDecoration: "none" }}
             onClick={(e) => {
               window.location.href = "mailto:synergy@synergex.com";
               e.preventDefault();
@@ -172,10 +161,10 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           </Link>{" "}
           to get started!
         </Typography>
-        <Button variant="contained" style={{ marginTop: "2%" }}>
+        <Button variant="contained" style={{ marginTop: "2%" }} size="large">
           Email PDF Results
         </Button>
-      </div>
-    </div>
+      </Box>
+    </BoxedLayout>
   );
 };
