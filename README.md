@@ -37,6 +37,5 @@ Runs the `predeploy` script and deploy's to Sam Sheets' Vercel account. The depl
 
 ## TODOs
 
-- [ ] Styling on Home page (images?, layout), within assessment questions (layout and coloring), and Results page (colors, RadarChart size and layout, card link colors), etc.
+- [ ] Styling on Results page (RadarChart size and layout)
 - [ ] Add ability to email self and Synergex pdf of assessment results.
-- [ ] Display user's answers to questions.
