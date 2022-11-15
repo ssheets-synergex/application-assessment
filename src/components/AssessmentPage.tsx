@@ -107,7 +107,7 @@ export const AssessmentPage = () => {
                     >
                       {questions[currentQuestion].key}
                     </Typography>
-                    <Typography color="primary">
+                    <Typography color="primary" align="left">
                       {questions[currentQuestion].questionText}
                     </Typography>
                   </FormLabel>
@@ -118,6 +118,7 @@ export const AssessmentPage = () => {
                         value={option.answerValue}
                         control={<Radio />}
                         label={option.answerText}
+                        style={{ textAlign: "left" }}
                       />
                     ))}
                   </RadioGroup>
