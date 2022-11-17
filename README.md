@@ -37,5 +37,4 @@ Runs the `predeploy` script and deploy's to Sam Sheets' Vercel account. The depl
 
 ## TODOs
 
-- [ ] Styling on Results page (RadarChart size and layout)
 - [ ] Add ability to email self and Synergex pdf of assessment results.

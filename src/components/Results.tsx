@@ -15,13 +15,21 @@ import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstruct
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import { Link } from "react-router-dom";
-import { AssessmentCategoryCard, BoxedLayout, RadarChart } from ".";
+import {
+  AssessmentCategoryCard,
+  BoxedLayout,
+  EmailPdfModal,
+  RadarChart,
+} from ".";
+import { useState } from "react";
 
 interface IResultsProp {
   results: IResult[];
 }
 
 export const Results: React.FC<IResultsProp> = ({ results }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   let answers: any[] = [];
 
   //A = desired state
@@ -83,6 +91,14 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
     let totalActualScore = 0;
     results.forEach((result: any) => (totalActualScore += result.value));
     return totalActualScore;
+  };
+
+  const handleClickOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleClickClose = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -206,9 +222,15 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           </Link>{" "}
           to get started!
         </Typography>
-        <Button variant="contained" style={{ marginTop: "2%" }} size="large">
+        <Button
+          variant="contained"
+          style={{ marginTop: "2%" }}
+          size="large"
+          onClick={handleClickOpen}
+        >
           Email PDF Results
         </Button>
+        <EmailPdfModal open={isModalOpen} handleClickClose={handleClickClose} />
       </Box>
     </BoxedLayout>
   );
