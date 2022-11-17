@@ -118,7 +118,16 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           </List>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
-          <RadarChart data={data} />
+          <Box
+            display="flex"
+            justifyContent="center"
+            margin="auto"
+            alignItems="center"
+            width="100%"
+            height="100%"
+          >
+            <RadarChart data={data} style={{ margin: 0 }} />
+          </Box>
         </Grid>
       </Grid>
       <Grid container marginBottom={"4%"}>
