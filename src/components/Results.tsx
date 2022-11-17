@@ -228,7 +228,7 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           size="large"
           onClick={handleClickOpen}
         >
-          Email PDF Results
+          Email Results
         </Button>
         <EmailPdfModal open={isModalOpen} handleClickClose={handleClickClose} />
       </Box>

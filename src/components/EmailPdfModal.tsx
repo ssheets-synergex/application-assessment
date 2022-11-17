@@ -32,7 +32,7 @@ export const EmailPdfModal = ({
     validationSchema: Yup.object({
       email: Yup.string()
         .email("Must be a valid email address")
-        .required("Email address is required"),
+        .required("Email Address is required"),
     }),
     onSubmit: (values, { resetForm }) => {
       handleClickClose();
@@ -52,8 +52,8 @@ export const EmailPdfModal = ({
         <DialogTitle>Send Results (*Functionality Coming Soon!)</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Let's start a converation! Email yourself a copy of your results and
-            Synergex will also receive a copy.
+            Let's start a conversation! Email yourself a copy of your results
+            and Synergex will also receive a copy.
           </DialogContentText>
 
           <TextField
