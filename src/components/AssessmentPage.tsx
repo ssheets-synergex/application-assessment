@@ -1,17 +1,19 @@
 import {
   Box,
   Button,
+  Card,
   FormControl,
   FormControlLabel,
-  FormLabel,
   LinearProgress,
   Radio,
   RadioGroup,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { BoxedLayout, Results } from ".";
+import { Results } from ".";
 import { questions } from "../data/questions";
+import { useTheme } from "@mui/material/styles";
+import CardContent from "@mui/material/CardContent";
 
 export interface IResult {
   key: string;
@@ -27,6 +29,8 @@ export const AssessmentPage = () => {
   const [value, setValue] = useState<number | null>(null);
   const [results, setResults] = useState<IResult[]>([]);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
+
+  const theme = useTheme();
 
   const numOfQuestions = questions.length;
 
@@ -89,65 +93,99 @@ export const AssessmentPage = () => {
   };
 
   return (
-    <BoxedLayout>
+    <Box component="main" px="41px" flexGrow={1}>
       {!isSubmitted ? (
-        <Box width={"75%"}>
-          <div>
-            <div style={{ marginTop: "20px" }}>
+        <>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            sx={{
+              mt: "5%",
+            }}
+          >
+            <Box style={{ width: 480 }}>
               <LinearProgress variant="determinate" value={progress} />
-            </div>
-            <div style={{ marginTop: "20px" }}>
-              <form onSubmit={handleSubmit}>
-                <FormControl>
-                  <FormLabel color="primary">
+            </Box>
+            <Typography variant="body1" pl="1%">
+              {progress}%
+            </Typography>
+          </Box>
+          <Box display="flex" justifyContent="center">
+            <Card
+              style={{
+                height: 525,
+                width: 500,
+                backgroundColor: theme.palette.background.default,
+                padding: "2%",
+                marginTop: "5%",
+                marginBottom: "5%",
+              }}
+              raised
+            >
+              <CardContent>
+                <form onSubmit={handleSubmit}>
+                  <FormControl style={{ width: "100%" }}>
                     <Typography
-                      variant="h3"
-                      color="primary"
+                      variant="h2"
                       style={{ marginBottom: "2%" }}
+                      color={theme.palette.info.main}
                     >
                       {questions[currentQuestion].key}
                     </Typography>
-                    <Typography color="primary" align="left">
+                    <Typography variant="h4" align="left">
                       {questions[currentQuestion].questionText}
                     </Typography>
-                  </FormLabel>
-                  <RadioGroup onChange={handleOnChange} value={value}>
-                    {questions[currentQuestion].answerOptions.map((option) => (
-                      <FormControlLabel
-                        key={option.answerValue}
-                        value={option.answerValue}
-                        control={<Radio />}
-                        label={option.answerText}
-                        style={{ textAlign: "left" }}
-                      />
-                    ))}
-                  </RadioGroup>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      disabled={isDisabled}
-                      style={{
-                        marginTop: "3%",
-                        width: "30%",
-                      }}
-                      size="medium"
+                    <RadioGroup
+                      onChange={handleOnChange}
+                      value={value}
+                      sx={{ marginTop: "2%" }}
                     >
-                      {currentQuestion === numOfQuestions - 1
-                        ? "Submit"
-                        : "Next"}
-                    </Button>
-                  </div>
-                </FormControl>
-              </form>
-            </div>
-          </div>
-        </Box>
+                      {questions[currentQuestion].answerOptions.map(
+                        (option) => (
+                          <FormControlLabel
+                            key={option.answerValue}
+                            value={option.answerValue}
+                            control={<Radio />}
+                            label={option.answerText}
+                            style={{ textAlign: "left" }}
+                          />
+                        )
+                      )}
+                    </RadioGroup>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        alignItems: "flex-end",
+                      }}
+                    >
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        disabled={isDisabled}
+                        style={{
+                          marginTop: "3%",
+                          width: "30%",
+                        }}
+                        size="medium"
+                      >
+                        {currentQuestion === numOfQuestions - 1
+                          ? "Submit"
+                          : "Next"}
+                      </Button>
+                    </Box>
+                  </FormControl>
+                </form>
+              </CardContent>
+            </Card>
+          </Box>
+        </>
       ) : (
         <div>
           <Results results={results} />
         </div>
       )}
-    </BoxedLayout>
+    </Box>
   );
 };

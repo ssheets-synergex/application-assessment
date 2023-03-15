@@ -17,7 +17,7 @@ export const HomePage = () => {
   };
 
   return (
-    <Box px="41px">
+    <Box component="main" px="41px">
       <Grid container>
         <Grid item xs={12} md={7}>
           <Box marginTop="25%">

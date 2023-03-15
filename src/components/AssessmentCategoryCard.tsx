@@ -33,7 +33,10 @@ export const AssessmentCategoryCard = ({
               <a
                 target="_blank"
                 rel="noreferrer"
-                style={{ textDecoration: "none", color: "#cc9966" }}
+                style={{
+                  textDecoration: "none",
+                  color: theme.palette.primary.main,
+                }}
                 href={categoryHref}
               >
                 {category}
