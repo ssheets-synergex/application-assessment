@@ -5,3 +5,5 @@ export { RadarChartComponent as RadarChart } from './RadarChart';
 export { AssessmentCategoryCard } from './AssessmentCategoryCard';
 export {EmailPdfModal} from './EmailPdfModal';
 export { BoxedLayout } from './BoxedLayout';
+export { NavBar } from './NavBar';
+export { Footer } from './Footer'

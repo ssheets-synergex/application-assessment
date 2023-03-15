@@ -32,8 +32,8 @@ export const theme = createTheme({
       },
       divider: "#D4D5D8",
       background: {
-        paper: "#FFF",
-        default: "#fafbfb",
+        paper: "#E6E6E6",
+        default: "#FFF",
       },
       action: {
         selectedOpacity: 0,
