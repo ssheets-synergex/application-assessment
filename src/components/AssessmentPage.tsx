@@ -126,7 +126,7 @@ export const AssessmentPage = () => {
                 <form onSubmit={handleSubmit}>
                   <FormControl style={{ width: "100%" }}>
                     <Typography
-                      variant="h2"
+                      variant="h1"
                       style={{ marginBottom: "2%" }}
                       color={theme.palette.info.main}
                     >

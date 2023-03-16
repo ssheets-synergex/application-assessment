@@ -140,7 +140,7 @@ export const EmailPdfModal = ({
               margin="normal"
               required
               fullWidth
-              multiline={true}
+              multiline
               rows={10}
               id="message"
               label="Message"
