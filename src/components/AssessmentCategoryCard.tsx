@@ -20,7 +20,7 @@ export const AssessmentCategoryCard = ({
       <Card
         style={{
           margin: "3%",
-          height: 160,
+          height: 185,
           backgroundColor: theme.palette.background.default,
           padding: "2%",
         }}

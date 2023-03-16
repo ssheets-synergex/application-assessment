@@ -17,15 +17,15 @@ export const RadarChartComponent = ({ data }: any) => {
       <Radar
         name="Desired State"
         dataKey="A"
-        stroke="#007f96"
-        fill="#007f96"
+        stroke="#3F3D56"
+        fill="#3F3D56"
         fillOpacity={0.6}
       />
       <Radar
         name="You"
         dataKey="B"
-        stroke="#F1584D"
-        fill="#F1584D"
+        stroke="#CC9966"
+        fill="#CC9966"
         fillOpacity={0.6}
       />
       <Legend />

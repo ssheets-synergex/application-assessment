@@ -11,6 +11,7 @@ export const NavBar = () => (
           to="/"
           disableRipple={true}
           style={{ height: 40 }}
+          aria-label="go to home page"
         >
           <SynergexLogo />
         </ButtonBase>
