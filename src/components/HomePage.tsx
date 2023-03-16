@@ -12,8 +12,15 @@ export const HomePage = () => {
   return (
     <Box component="main" px="41px" flexGrow={1}>
       <Grid container>
-        <Grid item xs={12} md={7}>
-          <Box marginTop="25%">
+        <Grid
+          item
+          xs={12}
+          md={7}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+        >
+          <Box>
             <Typography variant="h1" paddingBottom="5%">
               Does your IT roadmap have potholes?
             </Typography>
@@ -36,6 +43,7 @@ export const HomePage = () => {
             style={{
               marginTop: "3%",
               boxShadow: "3px 3px 8px 1px rgba(0,0,0,.8)",
+              width: 200,
             }}
             size="large"
           >

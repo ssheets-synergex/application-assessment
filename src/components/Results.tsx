@@ -4,6 +4,8 @@ import {
   Grid,
   List,
   ListItem,
+  ListItemIcon,
+  ListItemText,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -34,31 +36,37 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
       subject: "Maintainability",
       A: 5,
       fullMark: 5,
+      icon: <BuildIcon />,
     },
     {
       subject: "Integration",
       A: 5,
       fullMark: 5,
+      icon: <IntegrationInstructionsIcon />,
     },
     {
       subject: "Security",
       A: 5,
       fullMark: 5,
+      icon: <HttpsIcon />,
     },
     {
       subject: "Usability",
       A: 5,
       fullMark: 5,
+      icon: <ViewQuiltIcon />,
     },
     {
       subject: "Reliability",
       A: 5,
       fullMark: 5,
+      icon: <HandshakeIcon />,
     },
     {
       subject: "Future",
       A: 5,
       fullMark: 5,
+      icon: <RocketLaunchIcon />,
     },
   ];
 
@@ -74,6 +82,7 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
       value: resultElement.value,
       userAnswer: resultElement.userAnswer,
       question: resultElement.question,
+      icon: matchingData.icon,
     });
   });
 
@@ -98,55 +107,74 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
 
   return (
     <Box component="main" px="41px" flexGrow={1}>
-      <Typography variant="h1" marginBottom="5%" marginTop="5%">
+      <Typography variant="h1" marginBottom="6%" marginTop="5%">
         Results
       </Typography>
-      <Grid container marginBottom={"4%"}>
-        <Grid item xs={12} sm={12} md={6}>
-          <Typography variant="h2"> Your Answers</Typography>
-          <Typography variant="h5" marginTop={"1%"} color="GrayText">
-            Total Score: {actualScore()} / {possibleScore()}
-          </Typography>
-          <List sx={{ listStyleType: "disc", marginLeft: 2 }}>
-            {answers.map((answer) => (
-              <ListItem
-                key={answer.key}
-                style={{
-                  display: "list-item",
-                  textAlign: "left",
-                }}
-                disableGutters={true}
-              >
-                <Box>
-                  <Tooltip
-                    title={<Typography>{answer.question}</Typography>}
-                    placement="top"
+      <Box>
+        <Typography variant="h2"> Your Answers</Typography>
+        <Grid container marginBottom="6%">
+          <Grid item xs={12} sm={12} md={6}>
+            <Typography
+              variant="h5"
+              marginTop="1%"
+              marginBottom="3%"
+              color="GrayText"
+            >
+              Total Score: {actualScore()} / {possibleScore()}
+            </Typography>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              flexDirection="column"
+            >
+              <List>
+                {answers.map((answer) => (
+                  <ListItem
+                    key={answer.key}
+                    style={{
+                      textAlign: "left",
+                    }}
+                    disableGutters={true}
                   >
-                    <Typography
-                      color="primary"
-                      variant="h5"
-                    >{`${answer.key} (${answer.value}/5)`}</Typography>
-                  </Tooltip>
-                  <Typography>{` ${answer.userAnswer}`}</Typography>
-                </Box>
-              </ListItem>
-            ))}
-          </List>
+                    <ListItemIcon>{answer.icon}</ListItemIcon>
+                    <ListItemText
+                      primary={
+                        <Tooltip
+                          title={<Typography>{answer.question}</Typography>}
+                          placement="top"
+                        >
+                          <Typography
+                            color="primary"
+                            variant="h5"
+                          >{`${answer.key} (${answer.value}/5)`}</Typography>
+                        </Tooltip>
+                      }
+                      secondary={
+                        <Box>
+                          <Typography>{` ${answer.userAnswer}`}</Typography>
+                        </Box>
+                      }
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6}>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              width="100%"
+              height="100%"
+            >
+              <RadarChart data={data} style={{ margin: 0 }} />
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
-          <Box
-            display="flex"
-            justifyContent="center"
-            margin="auto"
-            alignItems="center"
-            width="100%"
-            height="100%"
-          >
-            <RadarChart data={data} style={{ margin: 0 }} />
-          </Box>
-        </Grid>
-      </Grid>
-      <Box width={"75%"} marginBottom={"4%"}>
+      </Box>
+      <Box marginBottom="6%">
         <Typography variant="h2">
           Optimize Your Application Investment
         </Typography>
@@ -160,7 +188,6 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
           possible, the Application Assessment can put your business on the fast
           track to a brighter, more-sustainable future.
         </Typography>
-
         <Typography variant="body1" style={{ marginTop: "2%" }}>
           <Link
             to="#"
@@ -184,7 +211,7 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
         </Button>
         <EmailPdfModal open={isModalOpen} handleClickClose={handleClickClose} />
       </Box>
-      <Grid container pb="138px">
+      <Grid container marginBottom="6%">
         <AssessmentCategoryCard
           icon={<BuildIcon fontSize="medium" />}
           category="Maintainability"
