@@ -1,4 +1,4 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { Card, CardContent, Grid, Link, Typography } from "@mui/material";
 import { ReactElement } from "react";
 import { useTheme } from "@mui/material/styles";
 
@@ -30,7 +30,7 @@ export const AssessmentCategoryCard = ({
           <>
             <Typography variant="h2">
               {icon}{" "}
-              <a
+              <Link
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -40,7 +40,7 @@ export const AssessmentCategoryCard = ({
                 href={categoryHref}
               >
                 {category}
-              </a>
+              </Link>
             </Typography>
           </>
           <Typography variant="body1" pt="1%">
