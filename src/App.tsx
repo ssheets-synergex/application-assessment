@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AssessmentPage, Footer, HomePage, NavBar } from "./components";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./theme";
+import { Box } from "@mui/material";
 
 export const App = () => (
-  <div className="App">
+  <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
     <ThemeProvider theme={theme}>
       <Router>
         <NavBar />
@@ -15,5 +16,5 @@ export const App = () => (
       </Router>
       <Footer />
     </ThemeProvider>
-  </div>
+  </Box>
 );
