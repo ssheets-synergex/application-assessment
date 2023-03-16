@@ -32,7 +32,7 @@ export const theme = createTheme({
       },
       divider: "#D4D5D8",
       background: {
-        paper: "#E6E6E6",
+        paper: "#FFF",
         default: "#FFF",
       },
       action: {

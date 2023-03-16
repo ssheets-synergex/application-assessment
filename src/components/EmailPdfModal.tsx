@@ -27,12 +27,17 @@ export const EmailPdfModal = ({
   const formik = useFormik({
     initialValues: {
       email: "",
+      name: "",
+      company: "",
       message: "",
     },
     validationSchema: Yup.object({
       email: Yup.string()
         .email("Must be a valid email address")
         .required("Email Address is required"),
+      name: Yup.string().required("Your Full Name is required"),
+      company: Yup.string().required("Your Company is required"),
+      message: Yup.string().required("Message text is required"),
     }),
     onSubmit: (values, { resetForm }) => {
       handleClickClose();
@@ -55,15 +60,13 @@ export const EmailPdfModal = ({
             Let's start a conversation! Email yourself a copy of your results
             and Synergex will also receive a copy.
           </DialogContentText>
-
           <TextField
             margin="normal"
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Your Email Address"
             name="email"
-            autoComplete="email"
             autoFocus
             value={formik.values.email}
             onChange={formik.handleChange}
@@ -72,6 +75,31 @@ export const EmailPdfModal = ({
           />
           <TextField
             margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Your Full Name"
+            name="name"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            error={formik.touched.name && Boolean(formik.errors.name)}
+            helperText={formik.touched.name && formik.errors.name}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="company"
+            label="Your Company"
+            name="company"
+            value={formik.values.company}
+            onChange={formik.handleChange}
+            error={formik.touched.company && Boolean(formik.errors.company)}
+            helperText={formik.touched.company && formik.errors.company}
+          />
+          <TextField
+            margin="normal"
+            required
             fullWidth
             multiline={true}
             rows={10}
@@ -80,6 +108,8 @@ export const EmailPdfModal = ({
             name="message"
             value={formik.values.message}
             onChange={formik.handleChange}
+            error={formik.touched.message && Boolean(formik.errors.message)}
+            helperText={formik.touched.message && formik.errors.message}
           />
         </DialogContent>
         <DialogActions style={{ marginRight: 15 }}>

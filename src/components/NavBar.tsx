@@ -4,7 +4,11 @@ import { ReactComponent as SynergexLogo } from "../assets/synergexFullLogo.svg";
 
 export const NavBar = () => (
   <Box>
-    <AppBar color="inherit" position="absolute">
+    <AppBar
+      color="inherit"
+      position="absolute"
+      sx={{ backgroundColor: "#E6E6E6" }}
+    >
       <Toolbar>
         <ButtonBase
           component={NavLink}
