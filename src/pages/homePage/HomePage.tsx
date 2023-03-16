@@ -1,11 +1,12 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as ServerCluster } from "../assets/serverCluster.svg";
+import { ReactComponent as ServerCluster } from "../../assets/serverCluster.svg";
 
-export const HomePage = () => {
+export const HomePage: FC = () => {
   const navigate = useNavigate();
 
-  const handleOnClick = () => {
+  const handleOnClick = (): void => {
     navigate("/assessment");
   };
 

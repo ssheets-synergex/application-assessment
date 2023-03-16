@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import {
   Legend,
   PolarAngleAxis,
@@ -7,8 +7,11 @@ import {
   Radar,
   RadarChart,
 } from "recharts";
+import { IRadarChartComponentProps } from "./types";
 
-export const RadarChartComponent = ({ data }: any) => {
+export const RadarChartComponent: FC<IRadarChartComponentProps> = ({
+  data,
+}) => {
   return (
     <RadarChart outerRadius={120} width={400} height={400} data={data}>
       <PolarGrid />

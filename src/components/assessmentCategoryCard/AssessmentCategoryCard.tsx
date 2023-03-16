@@ -1,17 +1,13 @@
 import { Card, CardContent, Grid, Link, Typography } from "@mui/material";
-import { ReactElement } from "react";
+import { FC } from "react";
 import { useTheme } from "@mui/material/styles";
+import { IAssessmentCategoryCardProps } from "./types";
 
-export const AssessmentCategoryCard = ({
+export const AssessmentCategoryCard: FC<IAssessmentCategoryCardProps> = ({
   icon,
   category,
   categoryHref,
   categoryDescription,
-}: {
-  icon: ReactElement<any, any>;
-  category: string;
-  categoryHref: string;
-  categoryDescription: string;
 }) => {
   const theme = useTheme();
 

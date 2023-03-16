@@ -14,18 +14,16 @@ import {
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import { SyntheticEvent, useState } from "react";
+import { FC, SyntheticEvent, useState } from "react";
+import { IEmailPdfModalProps } from "./types";
 
-export const EmailPdfModal = ({
+export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
   isModalOpen,
   handleClickClose,
-}: {
-  isModalOpen: boolean;
-  handleClickClose: () => void;
 }) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = useState<boolean>(false);
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     handleClickClose();
     formik.resetForm();
   };
@@ -54,9 +52,9 @@ export const EmailPdfModal = ({
   });
 
   const handleSnackbarClose = (
-    event?: SyntheticEvent | Event,
+    _event?: SyntheticEvent | Event,
     reason?: string
-  ) => {
+  ): void => {
     if (reason === "clickaway") {
       return;
     }

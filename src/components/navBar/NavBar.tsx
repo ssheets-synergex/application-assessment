@@ -1,8 +1,9 @@
 import { AppBar, Box, ButtonBase, Toolbar, Typography } from "@mui/material";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { ReactComponent as SynergexLogo } from "../assets/synergexFullLogo.svg";
+import { ReactComponent as SynergexLogo } from "../../assets/synergexFullLogo.svg";
 
-export const NavBar = () => (
+export const NavBar: FC = () => (
   <Box>
     <AppBar
       color="inherit"

@@ -9,20 +9,14 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
-import { Results } from ".";
-import { questions } from "../data/questions";
+import { FC, FormEvent, useState } from "react";
+import { ResultsPage } from "..";
+import { questions } from "../../data/questions";
 import { useTheme } from "@mui/material/styles";
 import CardContent from "@mui/material/CardContent";
+import { IResult } from "./types";
 
-export interface IResult {
-  key: string;
-  value: number | null;
-  userAnswer: string | undefined;
-  question: string | undefined;
-}
-
-export const AssessmentPage = () => {
+export const AssessmentPage: FC = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
@@ -34,7 +28,7 @@ export const AssessmentPage = () => {
 
   const numOfQuestions = questions.length;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     //determine if end of quiz
@@ -85,7 +79,7 @@ export const AssessmentPage = () => {
   };
 
   const handleOnChange = (
-    _e: React.FormEvent<HTMLInputElement>,
+    _e: FormEvent<HTMLInputElement>,
     value: string
   ): void => {
     setValue(Number(value));
@@ -104,7 +98,7 @@ export const AssessmentPage = () => {
               mt: "5%",
             }}
           >
-            <Box style={{ width: 480 }}>
+            <Box sx={{ width: 480 }}>
               <LinearProgress variant="determinate" value={progress} />
             </Box>
             <Typography variant="body1" pl="1%">
@@ -113,7 +107,7 @@ export const AssessmentPage = () => {
           </Box>
           <Box display="flex" justifyContent="center">
             <Card
-              style={{
+              sx={{
                 width: 500,
                 backgroundColor: theme.palette.background.default,
                 padding: "2%",
@@ -124,10 +118,10 @@ export const AssessmentPage = () => {
             >
               <CardContent>
                 <form onSubmit={handleSubmit}>
-                  <FormControl style={{ width: "100%" }}>
+                  <FormControl sx={{ width: "100%" }}>
                     <Typography
                       variant="h1"
-                      style={{ marginBottom: "2%" }}
+                      sx={{ marginBottom: "2%" }}
                       color={theme.palette.info.main}
                     >
                       {questions[currentQuestion].key}
@@ -153,7 +147,7 @@ export const AssessmentPage = () => {
                       )}
                     </RadioGroup>
                     <Box
-                      style={{
+                      sx={{
                         display: "flex",
                         justifyContent: "flex-end",
                         alignItems: "flex-end",
@@ -163,7 +157,7 @@ export const AssessmentPage = () => {
                         type="submit"
                         variant="contained"
                         disabled={isDisabled}
-                        style={{
+                        sx={{
                           marginTop: "3%",
                           width: "30%",
                         }}
@@ -182,7 +176,7 @@ export const AssessmentPage = () => {
         </>
       ) : (
         <div>
-          <Results results={results} />
+          <ResultsPage results={results} />
         </div>
       )}
     </Box>
