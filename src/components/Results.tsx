@@ -210,7 +210,10 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
         >
           Email Results
         </Button>
-        <EmailPdfModal open={isModalOpen} handleClickClose={handleClickClose} />
+        <EmailPdfModal
+          isModalOpen={isModalOpen}
+          handleClickClose={handleClickClose}
+        />
       </Box>
       <Grid container marginBottom="6%" spacing={4}>
         <AssessmentCategoryCard
