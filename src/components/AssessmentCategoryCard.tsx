@@ -19,10 +19,10 @@ export const AssessmentCategoryCard = ({
     <Grid item xs={12} sm={6} md={4}>
       <Card
         style={{
-          margin: "3%",
-          height: 185,
+          height: 195,
           backgroundColor: theme.palette.background.default,
           padding: "2%",
+          overflowY: "auto",
         }}
         raised
       >
@@ -43,7 +43,9 @@ export const AssessmentCategoryCard = ({
               </a>
             </Typography>
           </>
-          <Typography variant="body1">{categoryDescription}</Typography>
+          <Typography variant="body1" pt="1%">
+            {categoryDescription}
+          </Typography>
         </CardContent>
       </Card>
     </Grid>

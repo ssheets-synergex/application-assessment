@@ -211,7 +211,7 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
         </Button>
         <EmailPdfModal open={isModalOpen} handleClickClose={handleClickClose} />
       </Box>
-      <Grid container marginBottom="6%">
+      <Grid container marginBottom="6%" spacing={4}>
         <AssessmentCategoryCard
           icon={<BuildIcon fontSize="medium" />}
           category="Maintainability"
