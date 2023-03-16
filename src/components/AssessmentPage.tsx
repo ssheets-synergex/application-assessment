@@ -114,11 +114,10 @@ export const AssessmentPage = () => {
           <Box display="flex" justifyContent="center">
             <Card
               style={{
-                height: 525,
                 width: 500,
                 backgroundColor: theme.palette.background.default,
                 padding: "2%",
-                marginTop: "5%",
+                marginTop: "3%",
                 marginBottom: "5%",
               }}
               raised
