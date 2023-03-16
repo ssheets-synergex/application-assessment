@@ -150,11 +150,7 @@ export const Results: React.FC<IResultsProp> = ({ results }) => {
                           >{`${answer.key} (${answer.value}/5)`}</Typography>
                         </Tooltip>
                       }
-                      secondary={
-                        <Box>
-                          <Typography>{` ${answer.userAnswer}`}</Typography>
-                        </Box>
-                      }
+                      secondary={answer.userAnswer}
                     />
                   </ListItem>
                 ))}
