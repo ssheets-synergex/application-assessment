@@ -5,6 +5,7 @@ import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstruct
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 import { Box, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { FC, useState } from 'react';
 import {
   AssessmentCategoryCardsContent,
@@ -17,6 +18,8 @@ import { IAnswer, IData, IResultsProp } from './types';
 
 export const ResultsPage: FC<IResultsProp> = ({ results }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const theme = useTheme();
 
   let answers: IAnswer[] = [];
 
@@ -106,12 +109,16 @@ export const ResultsPage: FC<IResultsProp> = ({ results }) => {
       >
         Results
       </Typography>
-      <Box>
+      <Box
+        marginBottom='9%'
+        sx={{
+          [theme.breakpoints.down('md')]: {
+            marginBottom: '20%',
+          },
+        }}
+      >
         <Typography variant='h2'> Your Answers</Typography>
-        <Grid
-          container
-          marginBottom='6%'
-        >
+        <Grid container>
           <Grid
             item
             xs={12}
@@ -136,7 +143,6 @@ export const ResultsPage: FC<IResultsProp> = ({ results }) => {
               alignItems='center'
               width='100%'
               height='100%'
-              sx={{ overflowX: 'auto' }}
             >
               <RadarChart
                 data={data}
@@ -153,8 +159,13 @@ export const ResultsPage: FC<IResultsProp> = ({ results }) => {
       />
       <Grid
         container
-        marginBottom='6%'
+        marginBottom='9%'
         spacing={4}
+        sx={{
+          [theme.breakpoints.down('md')]: {
+            marginBottom: '20%',
+          },
+        }}
       >
         <AssessmentCategoryCardsContent />
       </Grid>
