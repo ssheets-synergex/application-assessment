@@ -6,7 +6,10 @@ import { Footer, NavBar } from './components';
 import { theme } from './theme';
 
 export const App: FC = () => (
-  <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+  <Box
+    data-testid='app-wrapper'
+    sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
+  >
     <ThemeProvider theme={theme}>
       <NavBar />
       <AppRoutes />
