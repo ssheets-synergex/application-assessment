@@ -2,6 +2,26 @@
   "name": "application-assessment",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "prebuild": "react-scripts test --colors",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "vercel --prod",
+    "lint": "eslint src --ext .js,.jsx,ts,tsx",
+    "lint:fix": "eslint src --ext .js,.jsx,ts,tsx --fix",
+    "format": "prettier --write .",
+    "clean": "rm -rf build node_modules && npm ci && npm build",
+    "pre-commit": "lint-staged && npm run lint"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write .",
+      "git add *"
+    ]
+  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -25,19 +45,144 @@
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "prebuild": "react-scripts test --colors",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "vercel --prod"
+  "devDependencies": {
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "prettier/prettier",
+      "plugin:prettier/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "no-shadow": "off",
+          "@typescript-eslint/no-shadow": [
+            "error"
+          ],
+          "no-console": "warn",
+          "react/jsx-key": "warn",
+          "arrow-body-style": [
+            "error",
+            "as-needed"
+          ],
+          "react/self-closing-comp": [
+            "error",
+            {
+              "component": true,
+              "html": true
+            }
+          ],
+          "import/order": [
+            "error",
+            {
+              "groups": [
+                "builtin",
+                "external",
+                "parent",
+                "sibling",
+                "index",
+                "object",
+                "type"
+              ],
+              "pathGroups": [
+                {
+                  "pattern": "@/**/**",
+                  "group": "parent",
+                  "position": "before"
+                }
+              ],
+              "alphabetize": {
+                "order": "asc"
+              }
+            }
+          ],
+          "react-hooks/exhaustive-deps": "error",
+          "react/prop-types": "off",
+          "consistent-return": "off",
+          "no-param-reassign": "error",
+          "no-use-before-define": "off",
+          "@typescript-eslint/no-use-before-define": [
+            "error"
+          ],
+          "react/jsx-filename-extension": [
+            "warn",
+            {
+              "extensions": [
+                ".tsx"
+              ]
+            }
+          ],
+          "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "": "never",
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+          ],
+          "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            {
+              "allowExpressions": true
+            }
+          ],
+          "no-underscore-dangle": "off",
+          "react/button-has-type": "warn",
+          "react/forbid-prop-types": "off",
+          "react/no-array-index-key": "off",
+          "react/no-unused-prop-types": "warn",
+          "react-hooks/rules-of-hooks": "error",
+          "no-promise-executor-return": "off",
+          "no-unsafe-optional-chaining": "warn",
+          "react/require-default-props": "off",
+          "import/prefer-default-export": "off",
+          "react/jsx-props-no-spreading": "off",
+          "react/jsx-no-useless-fragment": "off",
+          "react/jsx-curly-brace-presence": [
+            "warn",
+            {
+              "props": "never",
+              "children": "never"
+            }
+          ],
+          "react/destructuring-assignment": [
+            "warn",
+            "always"
+          ],
+          "import/no-extraneous-dependencies": "error",
+          "react/no-unstable-nested-components": "warn",
+          "react/function-component-definition": [
+            2,
+            {
+              "namedComponents": "arrow-function"
+            }
+          ],
+          "react/jsx-no-constructed-context-values": "warn",
+          "no-unused-vars": "off",
+          "@typescript-eslint/no-unused-vars": [
+            "warn"
+          ],
+          "prefer-destructuring": [
+            "error",
+            {
+              "object": true,
+              "array": false
+            }
+          ]
+        }
+      }
     ]
   },
   "browserslist": {

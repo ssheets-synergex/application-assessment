@@ -6,9 +6,9 @@ import {
   ListItemText,
   Tooltip,
   Typography,
-} from "@mui/material";
-import { FC } from "react";
-import { IAnswersDataContentProps } from "./types";
+} from '@mui/material';
+import { FC } from 'react';
+import { IAnswersDataContentProps } from './types';
 
 export const AnswersDataContent: FC<IAnswersDataContentProps> = ({
   answers,
@@ -16,39 +16,44 @@ export const AnswersDataContent: FC<IAnswersDataContentProps> = ({
   possibleScore,
 }) => (
   <>
-    <Typography variant="h5" marginTop="1%" marginBottom="3%" color="GrayText">
+    <Typography
+      variant='h5'
+      marginTop='1%'
+      marginBottom='3%'
+      color='GrayText'
+    >
       Total Score: {actualScore()} / {possibleScore()}
     </Typography>
     <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      flexDirection="column"
+      display='flex'
+      justifyContent='center'
+      alignItems='center'
+      flexDirection='column'
     >
       <List>
         {answers.map((answer) => (
           <ListItem
             key={answer.key}
             style={{
-              textAlign: "left",
+              textAlign: 'left',
             }}
             disableGutters={true}
           >
             <ListItemIcon>{answer.icon}</ListItemIcon>
             <ListItemText
               sx={{
-                ".MuiListItemText-secondary": {
-                  fontSize: "1rem",
+                '.MuiListItemText-secondary': {
+                  fontSize: '1rem',
                 },
               }}
               primary={
                 <Tooltip
                   title={<Typography>{answer.question}</Typography>}
-                  placement="top"
+                  placement='top'
                 >
                   <Typography
-                    color="primary"
-                    variant="h5"
+                    color='primary'
+                    variant='h5'
                   >{`${answer.key} (${answer.value}/5)`}</Typography>
                 </Tooltip>
               }

@@ -1,4 +1,4 @@
-import { IAnswer } from "../../../pages/resultsPage/types";
+import { IAnswer } from '../../../pages/resultsPage/types';
 
 export interface IAnswersDataContentProps {
   answers: IAnswer[];

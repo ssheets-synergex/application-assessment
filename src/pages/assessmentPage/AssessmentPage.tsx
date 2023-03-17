@@ -8,13 +8,13 @@ import {
   Radio,
   RadioGroup,
   Typography,
-} from "@mui/material";
-import { FC, FormEvent, useState } from "react";
-import { ResultsPage } from "..";
-import { questions } from "../../data/questions";
-import { useTheme } from "@mui/material/styles";
-import CardContent from "@mui/material/CardContent";
-import { IResult } from "./types";
+} from '@mui/material';
+import CardContent from '@mui/material/CardContent';
+import { useTheme } from '@mui/material/styles';
+import { FC, FormEvent, useState } from 'react';
+import { ResultsPage } from '..';
+import { questions } from '../../data/questions';
+import { IResult } from './types';
 
 export const AssessmentPage: FC = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
@@ -41,7 +41,7 @@ export const AssessmentPage: FC = () => {
       key: questions[currentQuestion].key,
       question: questions[currentQuestion].questionText,
       userAnswer: questions[currentQuestion].answerOptions.find(
-        (item) => item.answerValue === value
+        (item) => item.answerValue === value,
       )?.answerText,
       value: value,
     };
@@ -80,9 +80,9 @@ export const AssessmentPage: FC = () => {
 
   const handleOnChange = (
     _e: FormEvent<HTMLInputElement>,
-    value: string
+    newValue: string,
   ): void => {
-    setValue(Number(value));
+    setValue(Number(newValue));
     setIsDisabled(false);
   };
 
@@ -91,48 +91,60 @@ export const AssessmentPage: FC = () => {
       {!isSubmitted ? (
         <>
           <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
+            display='flex'
+            alignItems='center'
+            justifyContent='center'
             sx={{
-              mt: "5%",
+              mt: '5%',
             }}
           >
             <Box sx={{ width: 480 }}>
-              <LinearProgress variant="determinate" value={progress} />
+              <LinearProgress
+                variant='determinate'
+                value={progress}
+              />
             </Box>
-            <Typography variant="body1" pl="1%">
+            <Typography
+              variant='body1'
+              pl='1%'
+            >
               {progress}%
             </Typography>
           </Box>
-          <Box display="flex" justifyContent="center">
+          <Box
+            display='flex'
+            justifyContent='center'
+          >
             <Card
               sx={{
                 width: 500,
                 backgroundColor: theme.palette.background.default,
-                padding: "2%",
-                marginTop: "3%",
-                marginBottom: "5%",
+                padding: '2%',
+                marginTop: '3%',
+                marginBottom: '5%',
               }}
               raised
             >
               <CardContent>
                 <form onSubmit={handleSubmit}>
-                  <FormControl sx={{ width: "100%" }}>
+                  <FormControl sx={{ width: '100%' }}>
                     <Typography
-                      variant="h1"
-                      sx={{ marginBottom: "2%" }}
+                      variant='h1'
+                      sx={{ marginBottom: '2%' }}
                       color={theme.palette.info.main}
                     >
                       {questions[currentQuestion].key}
                     </Typography>
-                    <Typography variant="h4" align="left">
+                    <Typography
+                      variant='h4'
+                      align='left'
+                    >
                       {questions[currentQuestion].questionText}
                     </Typography>
                     <RadioGroup
                       onChange={handleOnChange}
                       value={value}
-                      sx={{ marginTop: "2%" }}
+                      sx={{ marginTop: '2%' }}
                     >
                       {questions[currentQuestion].answerOptions.map(
                         (option) => (
@@ -141,31 +153,31 @@ export const AssessmentPage: FC = () => {
                             value={option.answerValue}
                             control={<Radio />}
                             label={option.answerText}
-                            style={{ textAlign: "left" }}
+                            style={{ textAlign: 'left' }}
                           />
-                        )
+                        ),
                       )}
                     </RadioGroup>
                     <Box
                       sx={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        alignItems: "flex-end",
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'flex-end',
                       }}
                     >
                       <Button
-                        type="submit"
-                        variant="contained"
+                        type='submit'
+                        variant='contained'
                         disabled={isDisabled}
                         sx={{
-                          marginTop: "3%",
-                          width: "30%",
+                          marginTop: '3%',
+                          width: '30%',
                         }}
-                        size="medium"
+                        size='medium'
                       >
                         {currentQuestion === numOfQuestions - 1
-                          ? "Submit"
-                          : "Next"}
+                          ? 'Submit'
+                          : 'Next'}
                       </Button>
                     </Box>
                   </FormControl>

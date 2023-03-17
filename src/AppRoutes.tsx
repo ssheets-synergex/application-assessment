@@ -1,7 +1,7 @@
-import { JSXElementConstructor, ReactElement } from "react";
-import { useRoutes } from "react-router-dom";
-import { MainComponentBox } from "./components";
-import { AssessmentPage, HomePage } from "./pages";
+import { JSXElementConstructor, ReactElement } from 'react';
+import { useRoutes } from 'react-router-dom';
+import { MainComponentBox } from './components';
+import { AssessmentPage, HomePage } from './pages';
 
 export const AppRoutes = (): ReactElement<
   any,
@@ -9,15 +9,15 @@ export const AppRoutes = (): ReactElement<
 > | null =>
   useRoutes([
     {
-      path: "/",
+      path: '/',
       element: <MainComponentBox />,
       children: [
         {
-          path: "/",
+          path: '/',
           element: <HomePage />,
         },
         {
-          path: "/assessment",
+          path: '/assessment',
           element: <AssessmentPage />,
         },
       ],

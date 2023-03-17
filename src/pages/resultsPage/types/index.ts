@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
-import { IResult } from "../../assessmentPage/types";
+import { ReactElement } from 'react';
+import { IResult } from '../../assessmentPage/types';
 
 export interface IResultsProp {
   results: IResult[];

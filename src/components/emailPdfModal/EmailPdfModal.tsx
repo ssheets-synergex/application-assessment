@@ -1,3 +1,4 @@
+import { LoadingButton } from '@mui/lab';
 import {
   Alert,
   AlertTitle,
@@ -10,12 +11,11 @@ import {
   DialogTitle,
   Snackbar,
   TextField,
-} from "@mui/material";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { LoadingButton } from "@mui/lab";
-import { FC, SyntheticEvent, useState } from "react";
-import { IEmailPdfModalProps } from "./types";
+} from '@mui/material';
+import { useFormik } from 'formik';
+import { FC, SyntheticEvent, useState } from 'react';
+import * as Yup from 'yup';
+import { IEmailPdfModalProps } from './types';
 
 export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
   isModalOpen,
@@ -30,20 +30,20 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      name: "",
-      company: "",
-      message: "",
+      email: '',
+      name: '',
+      company: '',
+      message: '',
     },
     validationSchema: Yup.object({
       email: Yup.string()
-        .email("Must be a valid email address")
-        .required("Email Address is required"),
-      name: Yup.string().required("Your Full Name is required"),
-      company: Yup.string().required("Your Company is required"),
-      message: Yup.string().required("Message text is required"),
+        .email('Must be a valid email address')
+        .required('Email Address is required'),
+      name: Yup.string().required('Your Full Name is required'),
+      company: Yup.string().required('Your Company is required'),
+      message: Yup.string().required('Message text is required'),
     }),
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: (_values, { resetForm }) => {
       setIsSnackbarOpen(true);
       handleClickClose();
       resetForm();
@@ -53,9 +53,9 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
 
   const handleSnackbarClose = (
     _event?: SyntheticEvent | Event,
-    reason?: string
+    reason?: string,
   ): void => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
 
@@ -70,22 +70,25 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
         autoHideDuration={2000}
         onClose={handleSnackbarClose}
         anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
+          vertical: 'top',
+          horizontal: 'right',
         }}
       >
         <Alert
           onClose={handleSnackbarClose}
-          severity="success"
-          sx={{ width: "100%" }}
+          severity='success'
+          sx={{ width: '100%' }}
         >
           <AlertTitle>Success</AlertTitle>
           Your results have been emailed!
         </Alert>
       </Snackbar>
-      <Dialog open={isModalOpen} onClose={handleClose}>
+      <Dialog
+        open={isModalOpen}
+        onClose={handleClose}
+      >
         <Box
-          component="form"
+          component='form'
           marginTop={3}
           marginBottom={3}
           noValidate
@@ -98,12 +101,12 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
               and Synergex will also receive a copy.
             </DialogContentText>
             <TextField
-              margin="normal"
+              margin='normal'
               required
               fullWidth
-              id="email"
-              label="Your Email Address"
-              name="email"
+              id='email'
+              label='Your Email Address'
+              name='email'
               autoFocus
               value={formik.values.email}
               onChange={formik.handleChange}
@@ -111,38 +114,38 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
               helperText={formik.touched.email && formik.errors.email}
             />
             <TextField
-              margin="normal"
+              margin='normal'
               required
               fullWidth
-              id="name"
-              label="Your Full Name"
-              name="name"
+              id='name'
+              label='Your Full Name'
+              name='name'
               value={formik.values.name}
               onChange={formik.handleChange}
               error={formik.touched.name && Boolean(formik.errors.name)}
               helperText={formik.touched.name && formik.errors.name}
             />
             <TextField
-              margin="normal"
+              margin='normal'
               required
               fullWidth
-              id="company"
-              label="Your Company"
-              name="company"
+              id='company'
+              label='Your Company'
+              name='company'
               value={formik.values.company}
               onChange={formik.handleChange}
               error={formik.touched.company && Boolean(formik.errors.company)}
               helperText={formik.touched.company && formik.errors.company}
             />
             <TextField
-              margin="normal"
+              margin='normal'
               required
               fullWidth
               multiline
               rows={10}
-              id="message"
-              label="Message"
-              name="message"
+              id='message'
+              label='Message'
+              name='message'
               value={formik.values.message}
               onChange={formik.handleChange}
               error={formik.touched.message && Boolean(formik.errors.message)}
@@ -150,10 +153,17 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
             />
           </DialogContent>
           <DialogActions style={{ marginRight: 15 }}>
-            <Button variant="outlined" onClick={handleClose} type="reset">
+            <Button
+              variant='outlined'
+              onClick={handleClose}
+              type='reset'
+            >
               Cancel
             </Button>
-            <LoadingButton variant="contained" type="submit">
+            <LoadingButton
+              variant='contained'
+              type='submit'
+            >
               Send
             </LoadingButton>
           </DialogActions>

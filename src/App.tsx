@@ -1,11 +1,12 @@
-import { Footer, NavBar } from "./components";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "./theme";
-import { Box } from "@mui/material";
-import { AppRoutes } from "./AppRoutes";
+import { Box } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { FC } from 'react';
+import { AppRoutes } from './AppRoutes';
+import { Footer, NavBar } from './components';
+import { theme } from './theme';
 
-export const App = () => (
-  <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+export const App: FC = () => (
+  <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
     <ThemeProvider theme={theme}>
       <NavBar />
       <AppRoutes />

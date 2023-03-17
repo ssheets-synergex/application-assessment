@@ -4,6 +4,6 @@ export { EmailPdfModal } from './emailPdfModal/EmailPdfModal';
 export { NavBar } from './navBar/NavBar';
 export { Footer } from './footer/Footer';
 export { AssessmentCategoryCardsContent } from './assessmentCategoryCardsContent/AssessmentCategoryCardsContent';
-export { OptimizeContent } from './optimizeContent/OptimizeContent'
+export { OptimizeContent } from './optimizeContent/OptimizeContent';
 export { AnswersDataContent } from './answersDataContent/AnswersDataContent';
-export { MainComponentBox } from './mainComponentBox/MainComponentBox'
+export { MainComponentBox } from './mainComponentBox/MainComponentBox';

@@ -1,7 +1,7 @@
-import { Card, CardContent, Grid, Link, Typography } from "@mui/material";
-import { FC } from "react";
-import { useTheme } from "@mui/material/styles";
-import { IAssessmentCategoryCardProps } from "./types";
+import { Card, CardContent, Grid, Link, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { FC } from 'react';
+import { IAssessmentCategoryCardProps } from './types';
 
 export const AssessmentCategoryCard: FC<IAssessmentCategoryCardProps> = ({
   icon,
@@ -12,25 +12,30 @@ export const AssessmentCategoryCard: FC<IAssessmentCategoryCardProps> = ({
   const theme = useTheme();
 
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+    >
       <Card
         style={{
           height: 195,
           backgroundColor: theme.palette.background.default,
-          padding: "2%",
-          overflowY: "auto",
+          padding: '2%',
+          overflowY: 'auto',
         }}
         raised
       >
         <CardContent>
           <>
-            <Typography variant="h2">
-              {icon}{" "}
+            <Typography variant='h2'>
+              {icon}{' '}
               <Link
-                target="_blank"
-                rel="noreferrer"
+                target='_blank'
+                rel='noreferrer'
                 style={{
-                  textDecoration: "none",
+                  textDecoration: 'none',
                   color: theme.palette.primary.main,
                 }}
                 href={categoryHref}
@@ -39,7 +44,10 @@ export const AssessmentCategoryCard: FC<IAssessmentCategoryCardProps> = ({
               </Link>
             </Typography>
           </>
-          <Typography variant="body1" pt="1%">
+          <Typography
+            variant='body1'
+            pt='1%'
+          >
             {categoryDescription}
           </Typography>
         </CardContent>
