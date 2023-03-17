@@ -60,7 +60,7 @@ export const OptimizeContent: FC<IOptimizeContentProps> = ({
         size='large'
         onClick={handleClickOpen}
       >
-        Email Results
+        Email My Results
       </Button>
       <EmailPdfModal
         isModalOpen={isModalOpen}

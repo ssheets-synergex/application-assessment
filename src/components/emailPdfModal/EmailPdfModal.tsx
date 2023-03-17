@@ -44,10 +44,10 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
       message: Yup.string().required('Message text is required'),
     }),
     onSubmit: (_values, { resetForm }) => {
-      setIsSnackbarOpen(true);
       handleClickClose();
       resetForm();
       // TODO: add email functionality, if success => success snackbar, if error => error snackbar
+      // setIsSnackbarOpen(true);
     },
   });
 
