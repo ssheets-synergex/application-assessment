@@ -19,7 +19,7 @@ export const AssessmentCategoryCard: FC<IAssessmentCategoryCardProps> = ({
       md={4}
     >
       <Card
-        style={{
+        sx={{
           height: 195,
           backgroundColor: theme.palette.background.default,
           padding: '2%',
@@ -34,7 +34,7 @@ export const AssessmentCategoryCard: FC<IAssessmentCategoryCardProps> = ({
               <Link
                 target='_blank'
                 rel='noreferrer'
-                style={{
+                sx={{
                   textDecoration: 'none',
                   color: theme.palette.primary.main,
                 }}

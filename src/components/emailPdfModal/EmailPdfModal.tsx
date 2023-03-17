@@ -152,7 +152,7 @@ export const EmailPdfModal: FC<IEmailPdfModalProps> = ({
               helperText={formik.touched.message && formik.errors.message}
             />
           </DialogContent>
-          <DialogActions style={{ marginRight: 15 }}>
+          <DialogActions sx={{ marginRight: 15 }}>
             <Button
               variant='outlined'
               onClick={handleClose}

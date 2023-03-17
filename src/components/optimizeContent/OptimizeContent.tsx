@@ -13,14 +13,14 @@ export const OptimizeContent: FC<IOptimizeContentProps> = ({
     <Typography variant='h2'>Optimize Your Application Investment</Typography>
     <Typography
       variant='body1'
-      style={{ marginTop: '2%' }}
+      sx={{ marginTop: '2%' }}
     >
       With the Synergex Application Assessment, you can own your application’s
       future instead of the future owning you.
     </Typography>
     <Typography
       variant='body1'
-      style={{ marginTop: '2%' }}
+      sx={{ marginTop: '2%' }}
     >
       Synergex’s Professional Services Group delivers a thorough, informed and
       immediately actionable roadmap in the shortest amount of time possible,
@@ -29,7 +29,7 @@ export const OptimizeContent: FC<IOptimizeContentProps> = ({
     </Typography>
     <Typography
       variant='body1'
-      style={{ marginTop: '2%' }}
+      sx={{ marginTop: '2%' }}
     >
       <Link
         to='#'
@@ -45,7 +45,7 @@ export const OptimizeContent: FC<IOptimizeContentProps> = ({
     </Typography>
     <Button
       variant='contained'
-      style={{ marginTop: '2%' }}
+      sx={{ marginTop: '2%' }}
       size='large'
       onClick={handleClickOpen}
     >

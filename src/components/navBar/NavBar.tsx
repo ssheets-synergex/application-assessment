@@ -15,7 +15,7 @@ export const NavBar: FC = () => (
           component={NavLink}
           to='/'
           disableRipple={true}
-          style={{ height: 40 }}
+          sx={{ height: 40 }}
           aria-label='go to home page'
         >
           <SynergexLogo />
@@ -28,6 +28,7 @@ export const NavBar: FC = () => (
           color='initial'
           sx={{ textDecoration: 'none' }}
           pr='17px'
+          align='right'
         >
           Restart Assessment
         </Typography>

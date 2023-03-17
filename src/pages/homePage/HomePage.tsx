@@ -1,10 +1,12 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ReactComponent as ServerCluster } from '../../assets/serverCluster.svg';
 
 export const HomePage: FC = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const handleOnClick = (): void => {
     navigate('/assessment');
@@ -19,6 +21,11 @@ export const HomePage: FC = () => {
         display='flex'
         flexDirection='column'
         justifyContent='center'
+        sx={{
+          [theme.breakpoints.down('md')]: {
+            paddingTop: '10%',
+          },
+        }}
       >
         <Box>
           <Typography
@@ -58,8 +65,8 @@ export const HomePage: FC = () => {
         <Button
           variant='contained'
           onClick={handleOnClick}
-          style={{
-            marginTop: '3%',
+          sx={{
+            marginTop: '5%',
             boxShadow: '3px 3px 8px 1px rgba(0,0,0,.8)',
             width: 200,
           }}

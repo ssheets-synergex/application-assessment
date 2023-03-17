@@ -34,7 +34,7 @@ export const AnswersDataContent: FC<IAnswersDataContentProps> = ({
         {answers.map((answer) => (
           <ListItem
             key={answer.key}
-            style={{
+            sx={{
               textAlign: 'left',
             }}
             disableGutters={true}
@@ -50,6 +50,9 @@ export const AnswersDataContent: FC<IAnswersDataContentProps> = ({
                 <Tooltip
                   title={<Typography>{answer.question}</Typography>}
                   placement='top'
+                  disableFocusListener
+                  enterTouchDelay={0}
+                  leaveTouchDelay={3000}
                 >
                   <Typography
                     color='primary'

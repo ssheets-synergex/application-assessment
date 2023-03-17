@@ -136,6 +136,7 @@ export const ResultsPage: FC<IResultsProp> = ({ results }) => {
               alignItems='center'
               width='100%'
               height='100%'
+              sx={{ overflowX: 'auto' }}
             >
               <RadarChart
                 data={data}

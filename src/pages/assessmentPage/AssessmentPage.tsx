@@ -153,7 +153,7 @@ export const AssessmentPage: FC = () => {
                             value={option.answerValue}
                             control={<Radio />}
                             label={option.answerText}
-                            style={{ textAlign: 'left' }}
+                            sx={{ textAlign: 'left', marginTop: 1 }}
                           />
                         ),
                       )}
