@@ -6,3 +6,4 @@ export { Footer } from './footer/Footer';
 export { AssessmentCategoryCardsContent } from './assessmentCategoryCardsContent/AssessmentCategoryCardsContent';
 export { OptimizeContent } from './optimizeContent/OptimizeContent'
 export { AnswersDataContent } from './answersDataContent/AnswersDataContent';
+export { MainComponentBox } from './mainComponentBox/MainComponentBox'

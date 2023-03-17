@@ -98,7 +98,7 @@ export const ResultsPage: FC<IResultsProp> = ({ results }) => {
   };
 
   return (
-    <Box component="main" px="41px" flexGrow={1}>
+    <>
       <Typography variant="h1" marginBottom="6%" marginTop="5%">
         Results
       </Typography>
@@ -133,6 +133,6 @@ export const ResultsPage: FC<IResultsProp> = ({ results }) => {
       <Grid container marginBottom="6%" spacing={4}>
         <AssessmentCategoryCardsContent />
       </Grid>
-    </Box>
+    </>
   );
 };

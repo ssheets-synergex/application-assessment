@@ -87,7 +87,7 @@ export const AssessmentPage: FC = () => {
   };
 
   return (
-    <Box component="main" px="41px" flexGrow={1}>
+    <>
       {!isSubmitted ? (
         <>
           <Box
@@ -179,6 +179,6 @@ export const AssessmentPage: FC = () => {
           <ResultsPage results={results} />
         </div>
       )}
-    </Box>
+    </>
   );
 };
